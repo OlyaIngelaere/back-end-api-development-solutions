@@ -1,3 +1,17 @@
+<?php
+
+    $fruit = "coconut";
+    $characters = strlen($fruit);
+    $positiono = strpos($fruit, "o");
+    $fruit2 = "pineable";
+    $positiona = strrpos($fruit2, "a");
+    $uppercase = strtoupper($fruit2);
+    $letter = "e";
+    $number = "3";
+    $longestWord = "pneumonoultramicroscopicsilicovolcanoconiosis";
+    $withoutE = str_replace($letter, $number, $longestWord);     
+
+?>
 <!doctype html>
 <html>
     <head>
@@ -20,6 +34,9 @@
             <li>Determine the position of the first 'o' in the variable <code>$fruit</code>. Print this value.</li>
         </ul>
 
+        <p><?= $fruit ?> has <?= $characters ?> characters</p>
+        <p><?= $positiono ?> is the position of o in <?= $fruit ?></p>
+
         <h2>Part 2</h2>
 
         <ul>
@@ -28,6 +45,9 @@
             <li>Print this value.</li>
             <li>Convert the value of the <code>$fruit</code> variable to uppercase using a PHP string function.</li>
         </ul>
+
+        <p><?= $positiona ?> is the position of a in <?= $fruit2 ?></p>
+        <p><?= $uppercase ?></p>
 
         <h2>Part 3</h2>
 
@@ -39,6 +59,6 @@
                 <p class="remark">You can only use the variable names. The values <code>e</code>, <code>3</code> and <code>pneumonoultramicroscopicsilicovolcanoconiosis</code> can only appear once in the PHP document.</p>
             </li>
         </ul>
-
+        <p><?= $withoutE ?></p>
     </body>
 </html>
