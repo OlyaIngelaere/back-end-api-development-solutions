@@ -1,3 +1,22 @@
+<?php
+
+    $textToCheck = "Soupik";
+    $check1 = strlen($textToCheck) > 5 && substr($textToCheck, 0, 1) == strtoupper(substr($textToCheck, 0, 1));
+    $check2 = strlen($textToCheck) > 5 || strrpos($textToCheck, "e");
+    $check3 = strlen($textToCheck) > 5;
+    $check3b = !(strlen($textToCheck) <= 5);
+
+    $yearOfBirth = 1996;
+    $monthOfBirt = 02;
+    $apply = $yearOfBirth > 1994 || $yearOfBirth % 2 != 0 || $monthOfBirt <= 6;
+    if ($apply == true ) 
+	{
+		$text = "You apply";
+	}
+    else{
+        $text = "";
+    }
+?>
 <!doctype html>
 <html>
     <head>
@@ -8,6 +27,14 @@
         <link rel="stylesheet" type="text/css" href="/css/facade.css">
     </head>
     <body >
+        <style>
+            .applicable
+            {
+                background-color: green;
+                color: white;
+            }
+        </style>
+
 		<h1>Logic operators</h1>
 
         <h2>Part 1</h2>
@@ -22,6 +49,11 @@
             <li>Show the results of all the check variables in a valid HTML document. Make sure you can see the value (true of false) written in letters in stead of showing numbers (0,1)</li>
 		</ul>
 
+        <p><?= $textToCheck ?> has more than 5 characters and starts with a capital: <?= var_dump($check1) ?></p>
+        <p><?= $textToCheck ?> has more than 5 characters or contains the letter 'e': <?= var_dump($check2) ?></p>
+        <p><?= $textToCheck ?> has more than 5 characters: <?= var_dump($check3) ?></p>
+        <p><?= $textToCheck ?> has more than 5 characters (b): <?= var_dump($check3b) ?></p>
+
         <h2>Part 2</h2>
 
         <ul>
@@ -32,5 +64,6 @@
             <li>If the above evaluation is true, then the text "You apply" is being shown in a <code>&lt;p&gt;</code> element and a class is being added called "applicable". This class makes the background-color of the paragraph green and the text white.</li>
         </ul>
 
+        <code class="<?= ( ( $apply == true ) ? "applicable" : "" ) ?>"><?= $text ?></code>
     </body>
 </html>
