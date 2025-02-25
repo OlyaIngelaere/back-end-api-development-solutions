@@ -1,3 +1,22 @@
+<?php
+
+  $year = 1996;
+  if($year % 4 == 0 && $year % 100 != 0 && $year % 400 != 0){
+    $isLeapYear = "a leap year";
+  }
+  else{
+    $isLeapYear = "not a leap year";
+  }
+
+  $seconds = 221108521;
+  $minutes = $seconds / 60;
+  $hours = $minutes / 60;
+  $days = $hours / 24;
+  $weeks = $days / 7;
+  $months = $days / 31;
+  $years = $days / 365;
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -22,6 +41,8 @@
                 </ul>
             </li>
         </ul>
+
+        <p><?= $year ?> is  <?= $isLeapYear ?></p>
 
         <h1 class="extra">Part 2</h1>
 
@@ -48,6 +69,18 @@
                 </div>
 
             </li>
+        </ul>
+
+        
+        <p>in <?= $seconds ?> seconds</p>
+
+        <ul>
+            <li>minutes: <?= $minutes ?></li>
+            <li>hours: <?= $hours ?></li>
+            <li>days: <?= $days ?></li>
+            <li>weeks: <?= $weeks ?></li>
+            <li>months (31): <?= $months ?></li>
+            <li>years (365): <?= $years ?></li>
         </ul>
 
     </body>

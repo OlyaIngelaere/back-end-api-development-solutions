@@ -1,3 +1,77 @@
+<?php
+
+    $number = 4;
+    switch ($number)
+    {
+        case 1:
+            $day = "monday";
+            break;
+        case 2:
+            $day = "tuesday";
+            break;
+        case 3:
+            $day = "wednessday";
+            break;  
+        case 4:
+            $day = "thursday";
+            break;
+        case 5:
+            $day = "friday";
+            break;
+        case 6:
+            $day = "saturday";
+            break;  
+        case 7:
+            $day = "sunday";
+            break;           
+        default:
+            $day = "";
+    }
+
+    $month = "january";
+    switch (strtoupper($month))
+    {
+        case "JANUARY":
+            $season = "winter";
+            break;
+        case "FEBRUARY":
+            $season = "winter";
+            break;
+        case "MARCH":
+            $season = "spring";
+            break;
+        case "APRIL":
+            $season = "spring";
+            break;  
+        case "MAY":
+            $season = "spring";
+            break;   
+        case "JUNE":
+            $season = "summer";
+            break;    
+        case "JULY":
+            $season = "summer";
+            break; 
+        case "AUGUST":
+            $season = "summer";
+            break;  
+        case "SEPTEMBER":
+            $season = "autumn";
+            break; 
+        case "OCTOBER":
+            $season = "autumn";
+            break;   
+        case "NOVEMBER":
+            $season = "autumn";
+            break;  
+        case "DECEMBER":
+            $season = "winter";
+            break;            
+        default:
+            $season = "This is not a month that I recognize";
+    }
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -19,6 +93,8 @@
             <li>Use a switch</li>
         </ul>
 
+        <p><?= $day ?></p>
+
         <h2 class="extra">Part 2</h2>
 
         <ul>
@@ -29,5 +105,6 @@
             <li>Suppose the <code>month</code> value comes from user input. Sometimes the user writes the month with a capital, sometimes without. Can you come up with a solution so that both the capitalized version of the month and the non capitalized version can be evaluated?</li>
         </ul>
 
+        <p><?= $season ?></p>
     </body>
 </html>

@@ -1,3 +1,33 @@
+<?php
+
+    $number = 4;
+    if($number == 1){
+        $day = "monday";
+    }
+    if($number == 2){
+        $day = "tuesday";
+    }
+    if($number == 3){
+        $day = "wednessday";
+    }
+    if($number == 4){
+        $day = "thursday";
+    }
+    if($number == 5){
+        $day = "friday";
+    }
+    if($number == 6){
+        $day = "saturday";
+    }
+    if($number == 7){
+        $day = "sunday";
+    }
+
+    $uppercase = strtoupper($day);
+    $uppercaseWithoutA = str_replace("A", "", $uppercase);
+    $uppercaseWithoutLastA = str_replace("A", "", $uppercase);
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -19,6 +49,8 @@
             <li>For example, when <code>$number</code> is equal to 1, the string <code>monday</code> is displayed on the screen</li>
         </ul>
 
+        <p><?= $day ?></p>
+
         <h2 class="extra">Part 2</h2>
 
         <ul>
@@ -28,5 +60,8 @@
             <li>Create a variable that contains the name of the day completely in uppercase, except for the last 'a'</li>
         </ul>
 
+        <p><?= $uppercase ?></p>
+        <p><?= $uppercaseWithoutA ?></p>
+        <p><?= $uppercaseWithoutLastA ?></p>
     </body>
 </html>
