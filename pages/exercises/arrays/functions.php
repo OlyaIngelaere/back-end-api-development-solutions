@@ -1,3 +1,24 @@
+<?php
+
+  $animals1 = array('cat', 'dog', 'parrot', 'sheep', 'cow', 'goat', 'horse', 'elephant', 'frog', 'rabbit');
+  $count = count($animals1);
+  $teZoekenDier = 'dog';
+  if(in_array($teZoekenDier, $animals1 )){
+    $found = 'found';
+  }
+  else{
+    $found = 'not found';
+  }
+
+  $animals2 = array('cat', 'dog', 'parrot', 'sheep', 'cow', 'goat', 'horse', 'elephant', 'frog', 'rabbit');
+  sort($animals2);
+  $mamals = array('lion', 'tiger', 'monkey');
+  $animals = array_merge($animals2, $mamals);
+
+  $numbers = array(8, 7, 8, 7, 3, 2, 1, 2, 4);
+  $uniqueNumbers = array_unique($numbers);
+  rsort($uniqueNumbers);
+?>
 <!doctype html>
 <html>
     <head>
@@ -19,6 +40,9 @@
             <li>Make it possible to search for an animal in the array with a variable <code>$teZoekenDier</code>, also print a suitable message (found/not found).</li>
         </ul>
 
+        <p><?= $count ?></p>
+        <p><?= $teZoekenDier ?>: <?= $found ?></p>
+
         <h2 class="extra">Part 2</h2>
 
         <ul>
@@ -27,6 +51,9 @@
             <li>Create an array <code>$mamals</code> and place 3 animals in it, then merge the 2 arrays with animals into the array <code>$animals</code></li>
         </ul>
 
+        <p><?= print_r($animals2) ?></p>
+        <p><?= print_r($animals) ?></p>
+        
         <h3 class="extra">Part 3</h3>
 
         <ul>
@@ -38,5 +65,6 @@
             <li>Sort the array from largest to smallest</li>
         </ul>
 
+        <p><?= print_r($uniqueNumbers) ?></p>
     </body>
 </html>

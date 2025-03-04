@@ -1,3 +1,30 @@
+<?php
+
+  $animals1 = array('cat', 'dog', 'parrot', 'sheep', 'cow', 'goat', 'horse', 'elephant', 'frog', 'rabbit');
+  $animals2[] = 'cat';
+  $animals2[] = 'dog';
+  $animals2[] = 'parrot';
+  $animals2[] = 'sheep';
+  $animals2[] = 'cow';
+  $animals2[] = 'goat';
+  $animals2[] = 'horse';
+  $animals2[] = 'elephant';
+  $animals2[] = 'frog';
+  $animals2[] = 'rabbit';
+
+  $vehicles = array(	
+	'landVehicles' 	=> 	array( 'Vespa', 'bicycle' ), 
+	'waterVehicles' => 	array( 'surfboard', 'raft', 'schooner', 'three-master' ), 
+	'airVehicles' => 	array( 'hot air balloon', 'helicopter', 'B52' )  
+  );
+
+  $numbers = array(1, 2, 3, 4, 5);
+  $multiply = $numbers[0] * $numbers[1] * $numbers[2] * $numbers[3] * $numbers[4];
+
+  $numbers2 = array(5, 4, 3, 2, 1);
+  $sum = array($numbers[0] + $numbers2[0], $numbers[1] + $numbers2[1], $numbers[2] + $numbers2[2], $numbers[3] + $numbers2[3], $numbers[4] + $numbers2[4]);
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -44,8 +71,12 @@
                     </ul>
 
                 </li>
-
             </ul>
+
+            <p><?= print_r($animals1) ?></p>
+            <p><?= print_r($animals2) ?></p>
+
+            <p><?= print_r($vehicles) ?></p>
 
         <h1 class="extra">Exercise arrays: part 2</h1>
 
@@ -57,5 +88,7 @@
                 <li>Add the numbers from both arrays with the same index together</li>
             </ul>
 
+            <p><?= $multiply ?></p>
+            <p><?= print_r($sum) ?></p>
     </body>
 </html>
