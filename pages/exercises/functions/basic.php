@@ -1,3 +1,50 @@
+<?php
+    function calculateSum($number1, $number2)
+    {
+       return $number1 + $number2;
+    }
+
+    function multiply($number1, $number2)
+    {
+        return $number1 * $number2;
+    }
+
+    function isEven($number)
+    {
+        return $number % 2 == 0;
+    }
+
+    function convertAndCountString($string)
+    {
+        return array(strlen($string), strtoupper($string));
+    }
+
+    $conversion = convertAndCountString("This is a string.");
+    $length = $conversion[0];
+    $uppercase = $conversion[1];
+
+    function printArray($array)
+    {
+        $printText = "<ul>";
+        foreach($array as $key => $value) 
+        {
+            if(is_array($value)){
+                $printText .= "<li>" . printArray($value) . "</li>";
+            }
+            else{
+                $printText .= "<li>pets[". $key . "] has value '" . $array[$key] . "'</li>";
+            }
+        }
+        $printText .= "</ul>";
+
+        return $printText;
+    }
+
+    function validateHtmlTag($html)
+    {
+        return str_starts_with($html, "<html>") && str_ends_with($html, "</html>"); 
+    }
+?>
 <!doctype html>
 <html>
     <head>
@@ -43,6 +90,11 @@
             <li class="extension">Create a function that returns the length AND the uppercase version of a string. Then print the length and the uppercase version of the string outside the function. <span class="tip">return an array.</span></li>
         </ul>
 
+        <p>2 + 3 = <?= calculateSum(2, 3) ?></p>
+        <p>2 * 3 = <?= multiply(2, 3) ?></p>
+        <p>Is 5 even? <?= var_dump(isEven(5)) ?></p>
+        <p>The length of "This is a string." is <?= $length ?> and in uppercase this becomes <?= $uppercase ?></p>
+
         <h1 class="extra">Part 2</h1>
 
         <ul>
@@ -79,6 +131,7 @@
             <li>Execute all these functions and make sure that the results appear on the screen</li>
         </ul>
 
-            
+        <?= printArray(array("Soupik", "Monki", "Vishnu")) ?>  
+        <p> Is " &lt;html&gtThis is html.&lt;/html&gt;" a valid html? <?= var_dump(validateHtmlTag("<html>This is html.</html>")) ?></p> 
     </body>
 </html>

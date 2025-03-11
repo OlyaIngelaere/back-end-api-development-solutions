@@ -1,3 +1,99 @@
+<?php
+
+    $md5HashKey = "d1fa402db91a7a93c4f414b8278ce073";
+    function countCharachter($charachter)
+    {
+        global $md5HashKey;
+        $textChars = str_split($md5HashKey, 1);
+        $count = 0;
+        foreach($textChars as $char) 
+        {
+            if($char == $charachter){
+                $count += 1;
+            }
+        }
+
+        return $count;
+    }
+
+    function countCharachter2($md5HashKey, $charachter)
+    {
+        $textChars = str_split($md5HashKey, 1);
+        $count = 0;
+        foreach($textChars as $char) 
+        {
+            if($char == $charachter){
+                $count += 1;
+            }
+        }
+
+        return $count;
+    }
+
+    function countCharachter3($charachter)
+    {
+        $md5HashKey = $GLOBALS['md5HashKey'];
+        $textChars = str_split($md5HashKey, 1);
+        $count = 0;
+        foreach($textChars as $char) 
+        {
+            if($char == $charachter){
+                $count += 1;
+            }
+        }
+
+        return $count;
+    }
+
+    $pigHealth = 5;
+    $maximumThrows = 8;
+
+    function calculateHit(){
+        global $pigHealth;
+        global $maximumThrows;
+
+        $hitChance = rand(0, 100);
+        if($hitChance <= 40){
+            $pigHealth -= 1;
+            if($pigHealth == 1){
+                return "Hit! There is only " . $pigHealth . " pig left.";
+            }
+            else{
+                return "Hit! There are only " . $pigHealth . " pigs left.";
+            }
+        }
+        else{
+            if($pigHealth == 1){
+                return "Miss! " . $pigHealth . " pig left in the team.";
+            }
+            else{
+                return "Miss! " . $pigHealth . " pigs left in the team.";
+            }
+        }
+    }
+
+    function launchAngryBird(){
+        global $pigHealth;
+        global $maximumThrows;
+        static $launches = 0;
+        static $text = "";
+
+        if($launches < $maximumThrows && $pigHealth != 0){
+            $text .= "<p>" . calculateHit() . "</p>";
+            ++$launches;
+            launchAngryBird();
+        }
+        else if($pigHealth == 0){
+            $text .= "<p>Won!</p>";
+        }
+        else{
+            $text .= "<p>Lost!</p>";
+        }
+
+        return $text;
+    }
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -38,6 +134,10 @@
                 </div>
             </li>
         </ul>
+
+        <p>Function 1: The needle '2' occurs <?= countCharachter(2) ?> times in the hash key 'd1fa402db91a7a93c4f414b8278ce073'</p>
+        <p>Function 2: The needle '8' occurs <?= countCharachter2($md5HashKey, 8) ?> time in the hash key 'd1fa402db91a7a93c4f414b8278ce073'</p>
+        <p>Function 3: The needle 'a' occurs <?= countCharachter3("a") ?> times in the hash key 'd1fa402db91a7a93c4f414b8278ce073'</p>
 
         <h1 class="extra">Part 2 (Angry Birds)</h1>
 
@@ -101,5 +201,6 @@
             <li class="extension">Make sure the function automatically stops when <code>$pigHealth</code> is equal to 0</li>
         </ul>
 
+        <?= launchAngryBird() ?>  
     </body>
 </html>
