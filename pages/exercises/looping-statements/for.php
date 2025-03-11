@@ -1,3 +1,29 @@
+<?php
+
+    $numbers = "";
+    $numbers2 = "";
+	for($number = 0; $number <= 100; ++$number) 
+	{
+        $numbers .= $number . ", ";
+        if($number % 3 == 0 && $number > 40 && $number < 80){
+            $numbers2 .= $number . ", ";
+        }
+	}
+
+    $table = "<table>";
+    for($tablenumber = 1; $tablenumber <= 10; ++$tablenumber) 
+	{
+        $table .= "<tr>";
+        for($multiplication = 1; $multiplication <= 10; ++$multiplication) 
+        {
+            $multiply = $multiplication * $tablenumber;
+            $td = $multiply % 2 == 0 ? "<td class='green'>" : "<td>";
+            $table .= $td . $multiply . "</td>";
+        }
+
+        $table .= "</tr>";
+    }
+?>
 <!doctype html>
 <html>
     <head>
@@ -21,6 +47,9 @@
                 </ul>
             </li>
         </ul>
+
+        <p><?= $numbers ?></p>
+        <p><?= $numbers2 ?></p>
 
         <h1>Part 2</h1>
 
@@ -93,6 +122,7 @@
                 </ul>
             </li>
         </ul>
-            
+        
+        <p><?= $table ?></p>
     </body>
 </html>

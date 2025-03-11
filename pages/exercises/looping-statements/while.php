@@ -1,3 +1,34 @@
+<?php
+
+    $number = 0;
+    $numbers = "";
+    $numbers2 = "";
+    while($number <= 100){
+        $numbers .= $number . ", ";
+        if($number % 3 == 0 && $number > 40 && $number < 80){
+            $numbers2 .= $number . ", ";
+        }
+
+        $number += 1;
+    }
+
+    $tablenumber = 1;
+    $table = "<table>";
+    while($tablenumber <= 10){
+        $table .= "<tr>";
+        $multiplication = 1;
+        while($multiplication <= 10){
+            $multiply = $multiplication * $tablenumber;
+            $td = $multiply % 2 == 0 ? "<td class='green'>" : "<td>";
+            $table .= $td . $multiply . "</td>";
+
+            $multiplication += 1;
+        }
+
+        $table .= "</tr>";
+        $tablenumber += 1;
+    }
+?>
 <!doctype html>
 <html>
     <head>
@@ -16,6 +47,9 @@
                 <li>Print all numbers from 0 to 100 separated by a comma and a space " , ".</li>
                 <li>On the next line, print all numbers that are divisible by 3 AND greater than 40 BUT smaller than 80.</li>
             </ul>
+
+            <p><?= $numbers ?></p>
+            <p><?= $numbers2 ?></p>
 
             <h1>Part 2</h1>
 
@@ -82,5 +116,7 @@
 
                 <li>Now make sure that the cells with even numbers get a green background, use a CSS class for this and no inline styles. <span class="tip">Work with a shorthand if-statement</span></li>
             </ul>
+
+            <?= $table ?>
     </body>
 </html>

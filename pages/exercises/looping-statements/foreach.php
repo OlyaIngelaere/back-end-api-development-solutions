@@ -1,3 +1,53 @@
+<?php
+
+    $text = file_get_contents("text-file.txt");
+    $textChars = str_split($text, 1);
+    rsort($textChars);
+    $textChars = array_reverse($textChars);
+    $count = array();
+	foreach($textChars as $charachter) 
+	{
+        if(isset($count[$charachter])){
+            $count[$charachter] += 1;
+        }
+        else{
+            $count[$charachter] = 1;
+        }
+	}
+
+    $list1 = "<ul>";
+    foreach($count as $countKey => $countValue) 
+	{
+        $list1 .= "<li>" . $countKey . " x " . $countValue . "</li>";
+	}
+    $list1 .= "</ul>";
+
+    $tekst = file_get_contents("text-file.txt");
+    $array = str_split($tekst, 1);
+    $countAlphabet = array();
+    foreach($array as $charachter) 
+	{
+        $charachter = strtolower($charachter);
+        if (ctype_alpha($charachter)) {
+            $charachter = strtoupper($charachter);
+            if(isset($countAlphabet[$charachter])){
+                $countAlphabet[$charachter] += 1;
+            }
+            else{
+                $countAlphabet[$charachter] = 1;
+            }
+        } 
+	}
+
+    $list2 = "<ul>";
+    foreach($countAlphabet as $countKey => $countValue) 
+	{
+        $list2 .= "<li>" . $countKey . " x " . $countValue . "</li>";
+	}
+    $list2 .= "</ul>";
+
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -34,6 +84,8 @@
                 </ul>
             </li>
         </ul>
+        <p>Different charachters: <?= count($count) ?></p>
+        <?= $list1 ?> 
 
         <h1 class="extra">Part 2</h1>
 
@@ -60,6 +112,6 @@
             </li>
         </ul>
 
-            
+        <?= $list2 ?> 
     </body>
 </html>
