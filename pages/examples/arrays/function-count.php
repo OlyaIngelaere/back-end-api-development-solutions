@@ -1,10 +1,14 @@
 <?php
 
-	$cars 			= 	array( 'Volvo', 'Porsche', 'Honda' );
+	$cars = array( 
+		'Volvo', 
+		'Porsche', 
+		'Honda' 
+	);
 
-	$cars[105]		=	'Ford';
+	$cars[105] = 'Ford';
 
-	$amountOfCars 	= 	count( $cars );
+	$amountOfCars = count( $cars );
 	
 	if ( $amountOfCars > 0 ) 
 	{

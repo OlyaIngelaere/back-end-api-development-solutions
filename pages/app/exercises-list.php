@@ -52,6 +52,42 @@
 			'name' => 'Looping statements: foreach',
 			'indexPath' => '/pages/exercises/looping-statements/foreach.php'
 		],
+		[
+			'name' => 'Functions: basic',
+			'indexPath' => '/pages/exercises/functions/basic.php'
+		],
+		[
+			'name' => 'Functions: advanced',
+			'indexPath' => '/pages/exercises/functions/advanced.php'
+		],
+		[
+			'name' => 'Functions: recursion',
+			'indexPath' => '/pages/exercises/functions/recursion.php'
+		],
+		[
+			'name' => 'Superglobals: get',
+			'indexPath' => '/pages/exercises/superglobals/get.php'
+		],
+		[
+			'name' => 'Superglobals: post',
+			'indexPath' => '/pages/exercises/superglobals/post.php'
+		],
+		[
+			'name' => 'Revision: exercise 01',
+			'indexPath' => '/pages/exercises/revision/exercise-01.php'
+		],
+		[
+			'name' => 'Time: functions',
+			'indexPath' => '/pages/exercises/time/functions.php'
+		],
+		[
+			'name' => 'Cookie: basic',
+			'indexPath' => '/pages/exercises/cookie/basic.php'
+		],
+		[
+			'name' => 'Session: basic',
+			'indexPath' => '/pages/exercises/session/basic.php'
+		],
 	];
 
 ?>

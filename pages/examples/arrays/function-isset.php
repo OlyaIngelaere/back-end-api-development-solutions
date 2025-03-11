@@ -1,6 +1,10 @@
 <?php
 
-	$fruit 		= 	array( 'lemon' , 'banana' , null );
+	$fruit 		= 	array( 
+		'lemon', 
+		'banana', 
+		null 
+	);
 
 	$issetTest01	=	isset( $fruit[ 0 ] );
 	$issetTest02	=	isset( $fruit[ 2 ] );

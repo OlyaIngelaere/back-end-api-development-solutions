@@ -1,10 +1,18 @@
 <?php
 
-		$carsNumerical 		= 	array( 'Volvo', 'Porsche', 'Honda' );
+		$carsNumerical 		= 	array( 
+			'Volvo', 
+			'Porsche', 
+			'Honda'
+		);
 
-		$carsAssociative 	= 	array( 'Volvo' 	=> 	'145hp', 
-										'Honda' => 	'160hp');
-		
+		$carsAssociative 	= 	array( 
+			'Volvo' 	=> 	'145hp', 
+			'Honda' => 	'160hp'
+		);
+
+		var_dump($carsAssociative);
+
 ?>
 <!DOCTYPE html>
 <html>

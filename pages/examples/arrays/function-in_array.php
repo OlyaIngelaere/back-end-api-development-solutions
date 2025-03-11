@@ -1,8 +1,12 @@
 <?php
 
-	$cars 				= 	array( 'Volvo', 'Porsche', 'Honda' );
-	$carToSearch 	= 	'Ford';
+	$cars = array( 
+		'Volvo', 
+		'Porsche', 
+		'Honda'
+	);
 	
+	$carToSearch = 'Ford';
 	
 	if( in_array( $carToSearch, $cars ) ) 
 	{

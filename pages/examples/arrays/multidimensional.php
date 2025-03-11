@@ -1,8 +1,15 @@
 <?php
 
 	$sodas = array(	
-		'Cola' 	=> 	array( 'Regular', 'Zero', 'Light' ), 
-		'Fanta' => 	array( 'Regular', 'Lemon') 
+		'Cola' 	=> 	array( 
+			'Regular', 
+			'Zero', 
+			'Light' 
+		), 
+		'Fanta' => 	array( 
+			'Regular', 
+			'Lemon'
+		) 
 	);
 
 ?>
