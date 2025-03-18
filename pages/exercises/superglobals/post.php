@@ -1,3 +1,17 @@
+<?php
+    $password = "Soupik";
+    $username = "Olya";
+    $message = "";
+
+    if (isset($_POST[ 'username' ]) && isset($_POST['password'])) {
+        if($username == $_POST['username'] && $password == $_POST['password']){
+            $message = "Welcome!";
+        }
+        else{
+            $message = "There was an error logging in, please try again";
+        }
+    }
+?>
 <!doctype html>
 <html>
     <head>
@@ -75,5 +89,20 @@
                 </ul>
             </li>
         </ul>
+
+        <form action="post.php" method="POST">
+            <ul>
+                <li>
+                    <label for="username">Username</label>
+                    <input type="text" id="username" name="username">
+                </li>
+                <li>
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password">
+                </li>
+            </ul>
+            <input type="submit" name="submit">
+        </form>
+        <p><?= $message ?></p>
     </body>
 </html>

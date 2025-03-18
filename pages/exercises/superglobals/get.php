@@ -195,8 +195,6 @@
             <li>If the word does not appear, the appropriate message should be displayed: "The search term 'search term' does not appear in our newspaper."</li>
         </ul>
     </li>
-    </ul>
-            
-
+    </ul>      
     </body>
 </html>
