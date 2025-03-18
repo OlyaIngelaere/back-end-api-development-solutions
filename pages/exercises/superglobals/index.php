@@ -2,25 +2,44 @@
 
 	$articles = array(	
 		'1' 	=> 	array( 
-			'title' 	=> 	'145hp', 
-			'date' 	=> 	'145hp', 
-			'content' 	=> 	'145hp', 
-            'image' 	=> 	'145hp', 
-            'imageDescription' 	=> 	'145hp'
+			'title' 	=> 	'Endangered parrots Lily and Margot escape London Zoo', 
+			'date' 	=> 	'24 Oct 2024', 
+			'content' 	=> 	'Two critically endangered parrots have escaped London Zoo.
+
+Blue-throated macaws Lily and Margot were on a routine flight when they flew out of their enclosure on Monday.
+
+The pair have taken detours and hidden high up in the trees in the past but have never completely disappeared until now.
+
+London Zoo has asked for any sightings to be reported to them, adding the two blue and yellow-feathered birds were likely to stick together.', 
+            'image' 	=> 	'img/lily_margot.webp', 
+            'imageDescription' 	=> 	'Lily and Margot took flight on Monday and have not been seen since'
 		), 
 		'2' => 	array( 
-			'title' 	=> 	'145hp', 
-			'date' 	=> 	'145hp', 
-			'content' 	=> 	'145hp', 
-            'image' 	=> 	'145hp', 
-            'imageDescription' 	=> 	'145hp'
+			'title' 	=> 	'Parakeets spotted in orchard for first time', 
+			'date' 	=> 	'21 Oct 2024', 
+			'content' 	=> 	'Colourful parakeets have been spotted for what is thought to be the first time in a Cambridgeshire orchard.
+
+The exotic birds have made a new home for themselves in Coton.
+
+Anna Gazeley, whose family runs Coton Orchard, established in 1922, said it was "the first time we have seen [the birds] in Cambridge".
+
+The green ring-necked parakeets, or Psittacula krameri, are not native to this country but are the UKs only naturalised parrot, and the most northerly breeding parrot in the world, according to the local Wildlife Trust.', 
+            'image' 	=> 	'img/parakeet.webp', 
+            'imageDescription' 	=> 	'Colourful parakeets have moved into an orchard near Cambridge'
 		), 
 		'3' => 	array( 
-			'title' 	=> 	'145hp', 
-			'date' 	=> 	'145hp', 
-			'content' 	=> 	'145hp', 
-            'image' 	=> 	'145hp', 
-            'imageDescription' 	=> 	'145hp'
+			'title' 	=> 	'Couple love showing people their 20 rescued parrots', 
+			'date' 	=> 	'5 Oct 2024', 
+			'content' 	=> 	'A Wiltshire couple has devoted decades to rescuing parrots and now share their home with more than 20 birds.
+
+David and Gill Vickery, from Calne, Wiltshire, first took in two cockatiels 40 years ago and can regularly be seen exercising their birds around the town.
+
+The couple, who support the charity Problem Parrots, said more of the birds have been abandoned since the Covid pandemic.
+
+Mr Vickery said the problem was that once parrots have been reared by humans, they are unable to return to the wild.', 
+            'image' 	=> 	'img/couple.webp', 
+            'imageDescription' 	=> 	'People are giving up parrots they bought during the pandemic, according to a charity
+'
 		) 
 	);
 
