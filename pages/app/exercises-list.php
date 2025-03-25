@@ -88,6 +88,26 @@
 			'name' => 'Session: basic',
 			'indexPath' => '/pages/exercises/session/basic.php'
 		],
+		[
+			'name' => 'Databases: connection',
+			'indexPath' => '/pages/exercises/databases/connection.php'
+		],
+		[
+			'name' => 'Databases: queries',
+			'indexPath' => '/pages/exercises/databases/queries.php'
+		],
+		[
+			'name' => 'Databases: add',
+			'indexPath' => '/pages/exercises/databases/add.php'
+		],
+		[
+			'name' => 'Databases: delete',
+			'indexPath' => '/pages/exercises/databases/delete.php'
+		],
+		[
+			'name' => 'Databases: update',
+			'indexPath' => '/pages/exercises/databases/update.php'
+		],
 	];
 
 ?>

@@ -149,6 +149,26 @@
 			'indexPath' => '/pages/examples/superglobals/validation.php'
 		],
 		[
+			'name' => 'Databases: connection',
+			'indexPath' => '/pages/examples/databases/connection.php'
+		],
+		[
+			'name' => 'Databases: queries',
+			'indexPath' => '/pages/examples/databases/queries.php'
+		],
+		[
+			'name' => 'Databases: delete',
+			'indexPath' => '/pages/examples/databases/delete.php'
+		],
+		[
+			'name' => 'Databases: update',
+			'indexPath' => '/pages/examples/databases/update.php'
+		],
+		[
+			'name' => 'Databases: add',
+			'indexPath' => '/pages/examples/databases/add.php'
+		],
+		[
 			'name' => 'Time: functions',
 			'indexPath' => '/pages/examples/time/functions.php'
 		],
@@ -163,6 +183,6 @@
 		[
 			'name' => 'Session: advanced',
 			'indexPath' => '/pages/examples/session/advanced.php'
-		],
+		]
 	];
 ?>
