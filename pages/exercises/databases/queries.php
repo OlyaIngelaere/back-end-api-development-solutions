@@ -1,3 +1,117 @@
+<?php
+    try {
+        // Part 1: establishing a connection
+        $db = createSqliteDbConnection('spotify.sqlite');
+
+        // Part 2: Query to execute        
+        // Select all artists
+        $countTracksQuery = "SELECT COUNT(*) FROM tracks";
+
+        // Part 3: execute query and return result as an array        
+        $countTracks = fetchResultForQuery(
+            $db, 
+            $countTracksQuery
+        );
+
+		$countYouTracksQuery = "SELECT COUNT(*) FROM tracks WHERE Name LIKE '%you%'";
+       
+        $countYouTracks = fetchResultForQuery(
+            $db, 
+            $countYouTracksQuery
+        );
+
+		$youTracksQuery = "SELECT * FROM tracks WHERE Name LIKE '%you%'";
+
+        // Part 3: execute query and return result as an array        
+        $youTracks = fetchResultForQuery(
+            $db, 
+            $youTracksQuery
+        );
+
+		$youAndITracksQuery = "SELECT * FROM tracks WHERE Name LIKE 'I%you%'";
+
+        // Part 3: execute query and return result as an array        
+        $youAndITracks = fetchResultForQuery(
+            $db, 
+            $youAndITracksQuery
+        );
+
+		$albumTracksQuery = "SELECT * FROM tracks JOIN albums ON tracks.AlbumId = albums.AlbumId WHERE tracks.Name LIKE 'I%you%' AND (albums.Title LIKE '%chron%' OR albums.Title LIKE '%vol%')";
+
+        // Part 3: execute query and return result as an array        
+        $albumTracks = fetchResultForQuery(
+            $db, 
+            $albumTracksQuery
+        );
+
+		$artistAlbumTracksQuery = "SELECT tracks.Name track, albums.Title album, artists.Name artist FROM tracks JOIN albums ON tracks.AlbumId = albums.AlbumId JOIN artists ON albums.ArtistId = artists.ArtistId  WHERE tracks.Name LIKE 'I%you%' AND (albums.Title LIKE '%chron%' OR albums.Title LIKE '%vol%')";
+
+        // Part 3: execute query and return result as an array        
+        $artistAlbumTracks = fetchResultForQuery(
+            $db, 
+            $artistAlbumTracksQuery
+        );
+
+		$playlistQuery = "SELECT * FROM playlists join playlist_track on playlists.PlaylistId = playlist_track.PlaylistId WHERE TrackId = (SELECT TrackId FROM tracks WHERE Name = 'I Put A Spell On You')";
+
+        // Part 3: execute query and return result as an array        
+        $playlists = fetchResultForQuery(
+            $db, 
+            $playlistQuery
+        );
+
+		$playlistTracksQuery = "SELECT * FROM playlist_track join tracks on playlist_track.TrackId = tracks.TrackId WHERE PlaylistId = " . $playlists[0]["PlaylistId"];
+
+        // Part 3: execute query and return result as an array        
+        $playlistTracks = fetchResultForQuery(
+            $db, 
+            $playlistTracksQuery
+        );
+        // Part 4: when you're done, close the DB connection
+        closeSqliteDbConnection($db);
+    } 
+    catch (PDOException $e) 
+    {
+        // Handle any errors
+        $error = "Error: " . $e->getMessage();
+    }
+
+    function createSqliteDbConnection($dbFilePath)
+    {
+        // Create a new PDO instance for SQLite
+        $db = new PDO("sqlite:" . $dbFilePath);
+
+        // Set error mode to exception
+        $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        return $db;
+    }
+
+
+    function fetchResultForQuery($db, $query)
+    {
+        $result = array();
+
+        // Preparing means sanitizing them, checking for errors/malicious code before execution
+        $preparedStatement = $db->prepare($query);
+
+        // Execute the query
+        $preparedStatement->execute();
+
+        // Fetch all the result as an associative array
+        $result = $preparedStatement->fetchAll(PDO::FETCH_ASSOC);
+
+        return $result;
+    }
+
+    function closeSqliteDbConnection($db)
+    {
+        // Close the database connection
+        $db = null;
+    }
+
+?>
+
 <!doctype html>
 <html>
     <head>
@@ -68,7 +182,7 @@
 			                <div class="timestamp">10:03 AM</div>
 			            </div>
 			            <div class="message bot">
-			                Ok... I'll need some more information than that. I can see <b><code>{{ count how many tracks are in the database }}</code></b> songs here...
+			                Ok... I'll need some more information than that. I can see <b><code><?= $countTracks[0]["COUNT(*)"] ?></code></b> songs here...
 			                <div class="timestamp">10:05 AM</div>
 			            </div>
 			            <div class="message user">
@@ -87,7 +201,7 @@
 			            </div>
 
 			            <div class="message bot">
-			              Ok, pff... let me have a look. I see <b><code>{{ count how many tracks have the word 'you' in it's title }}</code></b> songs containing the word <i>you</i>. Do you want me to repeat them to you?
+			              Ok, pff... let me have a look. I see <b><code><?= $countYouTracks[0]["COUNT(*)"] ?></code></b> songs containing the word <i>you</i>. Do you want me to repeat them to you?
 			              <div class="timestamp">10:08 AM</div>
 			            </div>
 
@@ -98,7 +212,11 @@
 			            </div>
 
 			            <div class="message bot">
-			              Here you go: <ul><li><b><code>{{ list all the tracks that contain the word 'you' in it's title in an &lt;ul&gt; }}</code></b></li></ul>
+			              Here you go: <ul>
+											<?php foreach($youTracks as $track): ?>
+												<li><?= $track['Name'] ?></li>
+											<?php endforeach ?>
+										</ul>
 			              <div class="timestamp">10:11 AM</div>
 			            </div>
 
@@ -108,7 +226,12 @@
 			            </div>
 
 			            <div class="message bot">
-							So you want to know all the tracks that contain the word 'you' and 'I' in the title? You're vague man, but can do. Here you go: <ul><li><b><code>{{ list all the tracks that contain the word 'you' AND 'i' in it's title in an &lt;ul&gt; }}</code></b></li></ul>
+							So you want to know all the tracks that contain the word 'you' and 'I' in the title? You're vague man, but can do. Here you go: 
+										<ul>
+											<?php foreach($youAndITracks as $track): ?>
+												<li><?= $track['Name'] ?></li>
+											<?php endforeach ?>
+										</ul>
 							<div class="timestamp">10:12 AM</div>
 			            </div>
 
@@ -118,7 +241,12 @@
 			            </div>
 
 			            <div class="message bot">
-							Now we're getting somewhere. Vol or chron, ehh. I've found <b><code>{{ count of all the tracks that contain the word 'you' AND 'i' in it's title in and that are linked to an album that contains the world 'chron' or 'vol' in an &lt;ul&gt; }}</code></b> tracks that are on an album that contain the word 'chron' or 'vol' and that has songs that have the words 'you' and 'i' in the title. Here they are: <ul><li><b><code>{{ list all the tracks and matching album title that contain the word 'you' AND 'i' in it's title in and that are linked to an album that contains the world 'chron' or 'vol' in an &lt;ul&gt; }}</code></b></li></ul>
+							Now we're getting somewhere. Vol or chron, ehh. I've found <b><?= count($albumTracks) ?></b> tracks that are on an album that contain the word 'chron' or 'vol' and that has songs that have the words 'you' and 'i' in the title. Here they are: 
+							<ul>
+								<?php foreach($albumTracks as $track): ?>
+									<li><?= $track['Name'] ?> - <?= $track['Title'] ?></li>
+								<?php endforeach ?>
+							</ul>
 							<div class="timestamp">10:14 AM</div>
 			            </div>
 
@@ -129,7 +257,12 @@
 			            </div>
 
 			            <div class="message bot">
-							Ah, yeah, I see them. <ul><li><b><code>{{ list all the track names, albums and artists that contain the word 'you' AND 'i' in it's song title and are linked to an album that contains the word 'chron' or 'vol' in an &lt;ul&gt; }}</code></b></li></ul>
+							Ah, yeah, I see them. 
+							<ul>
+								<?php foreach($artistAlbumTracks as $track): ?>
+									<li><?= $track['track'] ?> - <?= $track['album'] ?> - <?= $track['artist'] ?></li>
+								<?php endforeach ?>
+							</ul>
 							<div class="timestamp">10:14 AM</div>
 			            </div>
 
@@ -141,7 +274,12 @@
 
 
 			            <div class="message bot">
-							No biggie. <ul><li><b><code>{{ list all the artists that have a song that contains the word 'you' AND 'i' in it's title which is on an album that contains the word 'chron' or 'vol'&lt;ul&gt; }}</code></b></li></ul>
+							No biggie. 
+							<ul>
+								<?php foreach($artistAlbumTracks as $track): ?>
+									<li><?= $track['artist'] ?></li>
+								<?php endforeach ?>
+							</ul>
 							<div class="timestamp">10:15 AM</div>
 			            </div>
 
@@ -177,8 +315,11 @@
 
 
 			            <div class="message bot">
-							Oops, sorry, I felt a bit sick. I had to go to the garbage collector. I'm back now, let me have a look: <ul>
-							    <li><code><b>{{ Fetch the name of the playlists that contain the song 'I put a spell on you' and put them in an &lt;ul&gt; }}</b></code></li>
+							Oops, sorry, I felt a bit sick. I had to go to the garbage collector. I'm back now, let me have a look: 
+							<ul>
+								<?php foreach($playlists as $playlist): ?>
+									<li><?= $playlist['Name'] ?></li>
+								<?php endforeach ?>
 							</ul>
 							<div class="timestamp">10:47 AM</div>
 			            </div>
@@ -192,8 +333,12 @@
 
 			            <div class="message bot">
 							Here: 
-							<p><code><b>{{ Show the name of the first playlist that contains the song 'I put a spell on you' }}</b></code></p>
-							<ol><li><code><b>{{ Show all the song names of that first playlist in an &lt;ol&gt; }}</b></code></li></ol>
+							<p><code><b><?= $playlists[0]['Name'] ?></b></code></p>
+							<ol>
+								<?php foreach($playlistTracks as $track): ?>
+									<li><?= $track['Name'] ?></li>
+								<?php endforeach ?>
+							</ol>
 							<div class="timestamp">10:47 AM</div>
 			            </div>
 
