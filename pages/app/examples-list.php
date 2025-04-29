@@ -183,6 +183,26 @@
 		[
 			'name' => 'Session: advanced',
 			'indexPath' => '/pages/examples/session/advanced.php'
+		],
+		[
+			'name' => 'Control structures: include',
+			'indexPath' => '/pages/examples/control-structures/include.php'
+		],
+		[
+			'name' => 'Control structures: require',
+			'indexPath' => '/pages/examples/control-structures/require.php'
+		],
+		[
+			'name' => 'Control structures: view logic separation',
+			'indexPath' => '/pages/examples/control-structures/view-logic-separation.php'
+		],
+		[
+			'name' => 'Classes: instance',
+			'indexPath' => '/pages/examples/classes/instance/instance.php'
+		],
+		[
+			'name' => 'Classes: __construct()',
+			'indexPath' => '/pages/examples/classes/construct/construct.php'
 		]
 	];
 ?>

@@ -77,18 +77,6 @@
 			'indexPath' => '/pages/exercises/revision/exercise-01.php'
 		],
 		[
-			'name' => 'Time: functions',
-			'indexPath' => '/pages/exercises/time/functions.php'
-		],
-		[
-			'name' => 'Cookie: basic',
-			'indexPath' => '/pages/exercises/cookie/basic.php'
-		],
-		[
-			'name' => 'Session: basic',
-			'indexPath' => '/pages/exercises/session/basic.php'
-		],
-		[
 			'name' => 'Databases: connection',
 			'indexPath' => '/pages/exercises/databases/connection.php'
 		],
@@ -108,6 +96,26 @@
 			'name' => 'Databases: update',
 			'indexPath' => '/pages/exercises/databases/update.php'
 		],
+		[
+			'name' => 'Time: functions',
+			'indexPath' => '/pages/exercises/time/functions.php'
+		],
+		[
+			'name' => 'Cookie: basic',
+			'indexPath' => '/pages/exercises/cookie/basic.php'
+		],
+		[
+			'name' => 'Session: basic',
+			'indexPath' => '/pages/exercises/session/basic.php'
+		],
+		[
+			'name' => 'Control structures: include/require',
+			'indexPath' => '/pages/exercises/control-structures/include-require.php'
+		],
+		[
+			'name' => 'Classes: instance',
+			'indexPath' => '/pages/exercises/classes/instance.php'
+		]
 	];
 
 ?>
